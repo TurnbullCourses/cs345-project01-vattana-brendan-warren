@@ -3,21 +3,19 @@ package edu.ithaca.dturnbull.bank;
 public class BankAccount {
 
     protected String email;
-    protected String password;
     protected double balance;
     
 
     /**
      * @throws IllegalArgumentException if email is invalid
      */
-    public BankAccount(String email, String password, double startingBalance){
+    public BankAccount(String email, double startingBalance){
         if (!isAmountValid(startingBalance)) {
             throw new IllegalArgumentException("The amount entered should be postive or have 2 decimal places or less.");
         }
 
         if (isEmailValid(email)){
             this.email = email;
-            this.password = password;
             this.balance = startingBalance;
         }
         else {
