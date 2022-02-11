@@ -1,14 +1,11 @@
 package edu.ithaca.dturnbull.bank;
 
 import java.util.function.Supplier;
-import edu.ithaca.dturnbull.bank.Account;
+import edu.ithaca.dturnbull.bank.BankAccount;
 
 
-class CheckingAccount extends Account {
-    public CheckingAccount(String email, String password, double balance) {
-        super();
-        this.email = email;
-        this.password = password;
-        this.balance = balance;
+class CheckingAccount extends BankAccount {
+    public CheckingAccount(String email, double startingBalance) {
+        super(email, startingBalance);
     }
 }
