@@ -1,3 +1,5 @@
+package edu.ithaca.dturnbull.bank;
+
 public class Customer {
 
     String name;   
@@ -6,7 +8,9 @@ public class Customer {
     Account[] accounts;
 
     public Customer(String nameIn, String customerID, String password) {
-
+        this.name = nameIn;
+        this.customerID = customerID;
+        this.password = password;
     }
 
     public void addAccount(Account newAccount) {
