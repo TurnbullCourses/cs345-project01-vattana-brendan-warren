@@ -5,7 +5,10 @@ import edu.ithaca.dturnbull.bank.BankAccount;
 
 
 class CheckingAccount extends BankAccount {
-    public CheckingAccount(String email, double startingBalance) {
-        super(email, startingBalance);
+    public CheckingAccount(String email, String password, double balance) {
+        super(email, password, balance);
+        this.email = email;
+        this.password = email;
+        this.balance = balance;
     }
 }
