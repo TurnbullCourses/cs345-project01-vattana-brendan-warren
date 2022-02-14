@@ -21,5 +21,9 @@ public class Customer {
     public void removeAccount(Account accountToDelete) {
         accounts.remove(accountToDelete);
     }
+
+    public ArrayList<Account> getAccounts() {
+        return this.accounts;
+    }
     
 }
