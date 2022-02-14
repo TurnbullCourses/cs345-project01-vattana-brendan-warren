@@ -22,7 +22,8 @@ Which classes & methods do you need to implement for these use cases?
 2. CheckingAccount - Brendan
 3. SavingAccount - Brendan
 4. BankAccountTest (master testing suite) - Vattana
-5. Teller (partial) - Brendan
+5. Customer (partial) - Brendan
+6. Teller (partial) - Brendan
 
 Don't forget to use Test-Driven Development (TDD)
 1. Write Class and Method Function Headers
