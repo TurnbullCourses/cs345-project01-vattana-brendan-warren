@@ -5,8 +5,12 @@ public class Account {
     protected String accountID;
 
     public Account(double balanceIn, String accountIDIn) {
-        balance = balanceIn;
-        accountID = accountIDIn;
+        if (isAmountValid(balanceIn)) {
+            balance = balanceIn;
+            accountID = accountIDIn;
+        } else {
+            throw new IllegalArgumentException("The balance entered has to be positive and has no more than two decimal places.");
+        }
     }
 
     public void checkAccountHistory() {

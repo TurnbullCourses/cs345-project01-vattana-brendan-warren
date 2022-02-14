@@ -7,6 +7,8 @@ public class SavingAccount extends Account {
 
     public SavingAccount(double balanceIn, String accountIDIn, double interestRateIn, double maxWithdrawal) {
         super(balanceIn, accountIDIn);
+        this.balance = balanceIn;
+        this.accountID = accountIDIn;
         this.interestRate = interestRateIn;
         this.maxWithdrawal = maxWithdrawal;
     }
