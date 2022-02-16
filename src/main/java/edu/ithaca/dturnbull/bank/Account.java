@@ -84,6 +84,6 @@ public class Account {
 
     public static int add(int a, int b) {
         // TODO : merge to main before branch split
-        return Math.addExact(a, b);
+        return a+b;
     }
 }

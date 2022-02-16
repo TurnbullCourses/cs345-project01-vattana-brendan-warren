@@ -119,15 +119,13 @@ class BankAccountTest {
        brendanSaving.transfer(2000, warrenSaving);
        assertEquals(500, brendanSaving.checkAccountBalance());
        assertEquals(9500, warrenSaving.checkAccountBalance());
-
-
     }
 
     @Test
     void addTest() {
-        assertEquals(4, Account.add(1,3));
-        assertEquals(4, Account.add(0,4));
-        assertEquals(2, Account.add(-1,3));
-        assertEquals(3, Account.add(6,-3));
+        assertEquals(0, Account.add(0, 0));
+        assertEquals(1, Account.add(1, 0));
+        assertEquals(1, Account.add(0, 1));
+        assertEquals(300, Account.add(100, 200));
     }
  }
