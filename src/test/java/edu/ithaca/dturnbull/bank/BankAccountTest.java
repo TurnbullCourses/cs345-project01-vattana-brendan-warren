@@ -123,6 +123,9 @@ class BankAccountTest {
 
     @Test
     void addTest() {
-        
+        assertEquals(0, Account.add(0, 0));
+        assertEquals(1, Account.add(1, 0));
+        assertEquals(1, Account.add(0, 1));
+        assertEquals(300, Account.add(100, 200));
     }
  }
