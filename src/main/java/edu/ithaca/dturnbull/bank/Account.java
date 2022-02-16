@@ -82,6 +82,6 @@ public class Account {
 
     public static int add(int a, int b) {
         // TODO : merge to main before branch split
-        return -1;
+        return a+b;
     }
 }
