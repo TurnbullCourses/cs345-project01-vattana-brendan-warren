@@ -1,5 +1,7 @@
 package edu.ithaca.dturnbull.bank;
 
+import java.lang.Math;
+
 public class Account {
     protected double balance;
     protected String accountID;
@@ -82,6 +84,6 @@ public class Account {
 
     public static int add(int a, int b) {
         // TODO : merge to main before branch split
-        return -1;
+        return Math.addExact(a, b);
     }
 }
