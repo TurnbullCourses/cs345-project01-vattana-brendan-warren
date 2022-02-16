@@ -80,7 +80,7 @@ public class Account {
         return true;
     }
 
-    private static int add(int a, int b) {
+    public static int add(int a, int b) {
         // TODO : merge to main before branch split
         return -1;
     }

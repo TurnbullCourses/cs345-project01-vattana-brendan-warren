@@ -119,7 +119,10 @@ class BankAccountTest {
        brendanSaving.transfer(2000, warrenSaving);
        assertEquals(500, brendanSaving.checkAccountBalance());
        assertEquals(9500, warrenSaving.checkAccountBalance());
+    }
 
-
+    @Test
+    void addTest() {
+        
     }
  }
