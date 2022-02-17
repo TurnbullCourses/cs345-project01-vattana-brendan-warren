@@ -1,8 +1,11 @@
 package edu.ithaca.dturnbull.bank;
 
+import java.lang.Math;
+
 public class Account {
     protected double balance;
     protected String accountID;
+
 
     public Account(double balanceIn, String accountIDIn) {
         if (isAmountValid(balanceIn)) {
@@ -81,12 +84,16 @@ public class Account {
     }
 
     public static int add(int a, int b) {
-        // TODO : merge to main before branch split
         return a+b;
     }
 
+<<<<<<< HEAD
     public static int subtract(int a, int b){
         // TODO : merge to main before branch split
         return a-b;
+=======
+    public static int subtract(int a, int b) {
+        return Math.subtractExact(a, b);
+>>>>>>> main
     }
 }

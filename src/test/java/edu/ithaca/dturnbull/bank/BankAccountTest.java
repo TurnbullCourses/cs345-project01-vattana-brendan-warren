@@ -3,32 +3,31 @@ package edu.ithaca.dturnbull.bank;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 class BankAccountTest {
 
     @Test
     void constructorAndCheckAccountBalanceTest() {
-        //check CheckingAccount constructor
-        Account brendan = new CheckingAccount(50, "001");  
+        // check CheckingAccount constructor
+        Account brendan = new CheckingAccount(50, "001");
         assertEquals(50, brendan.checkAccountBalance());
 
         Account warren = new CheckingAccount(0.01, "002");
         assertEquals(0.01, warren.checkAccountBalance());
 
-        //check SavingAccount constructor
+        // check SavingAccount constructor
         Account blosom = new SavingAccount(100, "003", 0.06, 1000);
         assertEquals(100, blosom.checkAccountBalance());
 
         Account yennefer = new SavingAccount(75, "004", 0.06, 1000);
         assertEquals(75, yennefer.checkAccountBalance());
 
-        //check throws when initializing the constructor
+        // check throws when initializing the constructor
         assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(-1, "001"));
         assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(5.003, "001"));
     }
 
     @Test
-    void withdrawForCheckingAccountTest() throws InsufficientFundsException{
+    void withdrawForCheckingAccountTest() throws InsufficientFundsException {
         Account brendan = new CheckingAccount(100, "001");
         assertEquals(100, brendan.checkAccountBalance());
 
@@ -59,7 +58,7 @@ class BankAccountTest {
 
     @Test
     void depositForCheckingAndSavingAccountTest() {
-        //deposit for CheckingAccount
+        // deposit for CheckingAccount
         Account brendan = new CheckingAccount(500, "001");
         assertEquals(500, brendan.checkAccountBalance());
 
@@ -69,7 +68,7 @@ class BankAccountTest {
         brendan.deposit(0.01);
         assertEquals(510.01, brendan.checkAccountBalance());
 
-        //deposit for SavingAccount
+        // deposit for SavingAccount
         Account warren = new SavingAccount(500, "002", 0.05, 100);
         assertEquals(500, warren.checkAccountBalance());
 
@@ -87,8 +86,8 @@ class BankAccountTest {
 
         Account warrenChecking = new CheckingAccount(3000, "002C");
         Account warrenSaving = new SavingAccount(7500, "002S", 0.06, 5000);
-        
-        //Checking to Checking
+
+        // Checking to Checking
         assertEquals(5000, brendanChecking.checkAccountBalance());
         assertEquals(3000, warrenChecking.checkAccountBalance());
 
@@ -96,7 +95,7 @@ class BankAccountTest {
         assertEquals(2500, brendanChecking.checkAccountBalance());
         assertEquals(5500, warrenChecking.checkAccountBalance());
 
-        //Checking to Saving
+        // Checking to Saving
         assertEquals(2500, brendanChecking.checkAccountBalance());
         assertEquals(2500, brendanSaving.checkAccountBalance());
 
@@ -104,7 +103,7 @@ class BankAccountTest {
         assertEquals(2000, brendanChecking.checkAccountBalance());
         assertEquals(3000, brendanSaving.checkAccountBalance());
 
-        //Saving to Checking
+        // Saving to Checking
         assertEquals(2000, brendanChecking.checkAccountBalance());
         assertEquals(3000, brendanSaving.checkAccountBalance());
 
@@ -112,13 +111,13 @@ class BankAccountTest {
         assertEquals(2500, brendanChecking.checkAccountBalance());
         assertEquals(2500, brendanSaving.checkAccountBalance());
 
-        //Saving to Saving
-       assertEquals(2500, brendanSaving.checkAccountBalance());
-       assertEquals(7500, warrenSaving.checkAccountBalance());
+        // Saving to Saving
+        assertEquals(2500, brendanSaving.checkAccountBalance());
+        assertEquals(7500, warrenSaving.checkAccountBalance());
 
-       brendanSaving.transfer(2000, warrenSaving);
-       assertEquals(500, brendanSaving.checkAccountBalance());
-       assertEquals(9500, warrenSaving.checkAccountBalance());
+        brendanSaving.transfer(2000, warrenSaving);
+        assertEquals(500, brendanSaving.checkAccountBalance());
+        assertEquals(9500, warrenSaving.checkAccountBalance());
     }
 
     @Test
@@ -130,6 +129,7 @@ class BankAccountTest {
     }
 
     @Test
+<<<<<<< HEAD
     void subtractTest(){
         assertEquals(1, Account.subtract(1, 0));
         assertEquals(2, Account.subtract(5, 3));
@@ -137,3 +137,31 @@ class BankAccountTest {
         assertEquals(9, Account.subtract(10, 1));
     }
  }
+=======
+    void addAccountTest() {
+        Customer customer = new Customer("Brendan", "00001", "password");
+        Account account1 = new Account(1000, "000001");
+        Account account2 = new Account(1000, "000002");
+        customer.addAccount(account1);
+        assertEquals(1, customer.getAccounts().size());
+        customer.addAccount(account2);
+        assertEquals(2, customer.getAccounts().size());
+        Account listAccount1 = customer.getAccounts().get(0);
+        assertEquals(listAccount1.checkAccountBalance(), 1000);
+    }
+
+    @Test
+    void removeAccountTest() {
+        Customer customer = new Customer("Brendan", "00001", "password");
+        Account account1 = new Account(1000, "000001");
+        Account account2 = new Account(1000, "000002");
+        customer.addAccount(account1);
+        customer.addAccount(account2);
+        assertEquals(2, customer.getAccounts().size());
+        customer.removeAccount(customer.getAccounts().get(0));
+        assertEquals(1, customer.getAccounts().size());
+        customer.removeAccount(customer.getAccounts().get(0));
+        assertEquals(0, customer.getAccounts().size());
+    }
+}
+>>>>>>> main

@@ -12,6 +12,7 @@ public class Customer {
         this.name = nameIn;
         this.customerID = customerID;
         this.password = password;
+        accounts = new ArrayList<Account>();
     }
 
     public void addAccount(Account newAccount) {
