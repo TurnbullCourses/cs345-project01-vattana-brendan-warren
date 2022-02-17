@@ -128,4 +128,12 @@ class BankAccountTest {
         assertEquals(1, Account.add(0, 1));
         assertEquals(300, Account.add(100, 200));
     }
+
+    @Test
+    void subtractTest(){
+        assertEquals(1, Account.subtract(1, 0));
+        assertEquals(2, Account.subtract(5, 3));
+        assertEquals(0, Account.subtract(6, 6));
+        assertEquals(9, Account.subtract(10, 1));
+    }
  }
