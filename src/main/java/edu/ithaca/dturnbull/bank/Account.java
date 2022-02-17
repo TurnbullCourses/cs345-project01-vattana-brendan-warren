@@ -1,7 +1,5 @@
 package edu.ithaca.dturnbull.bank;
 
-import java.lang.Math;
-
 public class Account {
     protected double balance;
     protected String accountID;
