@@ -1,10 +1,14 @@
 package edu.ithaca.dturnbull.bank;
 
-import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Account {
     protected double balance;
     protected String accountID;
+    protected List<List<Double>> history;
+    protected List<Double> withdrawals;
+    protected List<Double> deposits;
 
 
     public Account(double balanceIn, String accountIDIn) {
@@ -14,10 +18,16 @@ public class Account {
         } else {
             throw new IllegalArgumentException("The balance entered has to be positive and has no more than two decimal places.");
         }
+        
+        history = new ArrayList<>();
+        deposits = new ArrayList<>();
+        withdrawals = new ArrayList<>();
+        history.add(deposits);
+        history.add(withdrawals);
     }
 
-    public void checkAccountHistory() {
-        
+    public List<List<Double>> checkAccountHistory() {
+        return history;
     }
 
     public double checkAccountBalance() {
@@ -34,6 +44,7 @@ public class Account {
         }
         if (amount <= balance){
             balance -= amount;
+            withdrawals.add(amount);
         }
         else {
             throw new InsufficientFundsException("Not enough money");
@@ -50,6 +61,7 @@ public class Account {
             throw new IllegalArgumentException("The amount entered should be postive or have 2 decimal places or less.");
         } else {
             balance += amount;
+            deposits.add(amount);
         }
     }
 
@@ -87,13 +99,8 @@ public class Account {
         return a+b;
     }
 
-<<<<<<< HEAD
     public static int subtract(int a, int b){
         // TODO : merge to main before branch split
         return a-b;
-=======
-    public static int subtract(int a, int b) {
-        return Math.subtractExact(a, b);
->>>>>>> main
     }
 }

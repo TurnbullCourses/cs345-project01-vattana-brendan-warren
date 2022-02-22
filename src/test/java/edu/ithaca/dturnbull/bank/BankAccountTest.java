@@ -129,15 +129,6 @@ class BankAccountTest {
     }
 
     @Test
-<<<<<<< HEAD
-    void subtractTest(){
-        assertEquals(1, Account.subtract(1, 0));
-        assertEquals(2, Account.subtract(5, 3));
-        assertEquals(0, Account.subtract(6, 6));
-        assertEquals(9, Account.subtract(10, 1));
-    }
- }
-=======
     void addAccountTest() {
         Customer customer = new Customer("Brendan", "00001", "password");
         Account account1 = new Account(1000, "000001");
@@ -163,5 +154,51 @@ class BankAccountTest {
         customer.removeAccount(customer.getAccounts().get(0));
         assertEquals(0, customer.getAccounts().size());
     }
+
+    @Test
+    void checkAccountHistory() throws InsufficientFundsException {
+        //checkAccountHistory for CheckingAccount
+        Account brendan = new CheckingAccount(300, "001");
+        assertEquals(2, brendan.checkAccountHistory().size()); //the history list contains two lists, which are deposits and withdrawals so the size is 2
+        assertEquals(0,  brendan.checkAccountHistory().get(0).size()); //deposit list is empty; therefore, the size is 0
+        assertEquals(0, brendan.checkAccountHistory().get(1).size()); //withdrawal list is empty; therefore, the size is 0
+
+        brendan.deposit(500);
+        assertEquals(1, brendan.checkAccountHistory().get(0).size());
+        assertEquals(500, brendan.checkAccountHistory().get(0).get(0));
+
+        brendan.deposit(1000);
+        assertEquals(2, brendan.checkAccountHistory().get(0).size());
+        assertEquals(1000, brendan.checkAccountHistory().get(0).get(1));
+
+        brendan.withdraw(300);
+        assertEquals(1, brendan.checkAccountHistory().get(1).size());
+        assertEquals(300, brendan.checkAccountHistory().get(1).get(0));
+
+        brendan.withdraw(700);
+        assertEquals(2, brendan.checkAccountHistory().get(1).size());
+        assertEquals(700, brendan.checkAccountHistory().get(1).get(1));
+        
+        //checkAccountHistory for SavingAccount
+        Account warren = new SavingAccount(500, "002", 0.05, 1000);
+        assertEquals(2, warren.checkAccountHistory().size()); //the history list contains two lists, which are deposits and withdrawals so the size is 2
+        assertEquals(0,  warren.checkAccountHistory().get(0).size()); //deposit list is empty; therefore, the size is 0
+        assertEquals(0, warren.checkAccountHistory().get(1).size()); //withdrawal list is empty; therefore, the size is 0
+
+        warren.deposit(500);
+        assertEquals(1, warren.checkAccountHistory().get(0).size());
+        assertEquals(500, warren.checkAccountHistory().get(0).get(0));
+
+        warren.deposit(1000);
+        assertEquals(2, warren.checkAccountHistory().get(0).size());
+        assertEquals(1000, warren.checkAccountHistory().get(0).get(1));
+
+        warren.withdraw(300);
+        assertEquals(1, warren.checkAccountHistory().get(1).size());
+        assertEquals(300, warren.checkAccountHistory().get(1).get(0));
+
+        warren.withdraw(700);
+        assertEquals(2, warren.checkAccountHistory().get(1).size());
+        assertEquals(700, warren.checkAccountHistory().get(1).get(1));
+    }
 }
->>>>>>> main
