@@ -28,6 +28,7 @@ public class SavingAccount extends Account {
         }
         if (amount <= balance && (maxWithdrawal - amount >= 0)){
             balance -= amount;
+            withdrawals.add(amount);
         }
         else {
             throw new InsufficientFundsException("Not enough money");
