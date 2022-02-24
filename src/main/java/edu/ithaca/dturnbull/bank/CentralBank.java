@@ -6,6 +6,9 @@ import java.util.List;
 public class CentralBank {
     private List<Customer> customerList;
     private List<List<Teller>> tellerList;
+    private int nextAccountID = 0;
+    private int nextAtmID = 0;
+    private int nextBankTellerID = 0;
 
     public CentralBank() {
         customerList = new ArrayList<>();
