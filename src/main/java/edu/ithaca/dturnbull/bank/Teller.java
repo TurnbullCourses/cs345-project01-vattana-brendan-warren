@@ -3,10 +3,8 @@ import java.util.ArrayList;
 
 public class Teller {
 
-    public String tellerID;
-
-    public Teller(String tellerID) {
-        this.tellerID = tellerID;
+    public Teller() {
+        
     }
 
     protected void transfer(Customer fromCustomer, Customer toCustomer, Account fromAccount, Account toAccount, double amount) throws IllegalAccessException, InsufficientFundsException {
