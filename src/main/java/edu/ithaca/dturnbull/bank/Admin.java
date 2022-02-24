@@ -24,7 +24,7 @@ public class Admin {
      * @return: account balance
      */
     public double checkOverallMoney(Account account){
-
+        return account.getBalance();
     }
 
     /**
