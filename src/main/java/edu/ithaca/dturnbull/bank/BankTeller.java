@@ -29,8 +29,10 @@ public class BankTeller extends Teller {
         return tellerID;
     }
 
-    public void registerCustomer(String name, String password) {
+    public void registerCustomer(CentralBank centralBank, String name, String password) {
+        int customerID = centralBank.getNextCustomerID();
         Customer newCustomer = new Customer(name, customerID, password);
-        central
+        centralBank.increaseCustomerID();
+        centralBank.addCustomer(newCustomer);
     }
 }

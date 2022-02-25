@@ -27,4 +27,15 @@ public class Customer {
         return this.accounts;
     }
     
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return customerID;
+    }
+
+    public void changePassword(String newPassword) {
+        password = newPassword;
+    }
 }

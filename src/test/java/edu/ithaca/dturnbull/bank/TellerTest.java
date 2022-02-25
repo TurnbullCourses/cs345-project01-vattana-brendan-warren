@@ -30,10 +30,10 @@ public class TellerTest {
 
         //close account test
         assertEquals(2, customer1.accounts.size());
-        bankTeller1.closeAccount(customer1, customer1.getAccounts().get(0));
+        bankTeller1.closeAccount(chase, customer1, customer1.getAccounts().get(0));
         assertEquals(1, customer1.accounts.size());
 
-        bankTeller1.closeAccount(customer1, customer1.getAccounts().get(0));
+        bankTeller1.closeAccount(chase, customer1, customer1.getAccounts().get(0));
         assertEquals(0, customer1.accounts.size());
 
 
@@ -50,18 +50,18 @@ public class TellerTest {
 
         testBankTeller.registerCustomer(centralBank, "Karren", "123");
         assertEquals(2 ,centralBank.getCustomerList().size());
-        assertEquals("Karren", centralBank.getCustomerList().get(0).getName());
-        assertEquals(1, centralBank.getCustomerList().get(0).getID());
+        assertEquals("Karren", centralBank.getCustomerList().get(1).getName());
+        assertEquals(1, centralBank.getCustomerList().get(1).getID());
 
         testBankTeller.registerCustomer(centralBank, "Brendan", "321");
         assertEquals(3 ,centralBank.getCustomerList().size());
-        assertEquals("Brendan", centralBank.getCustomerList().get(0).getName());
-        assertEquals(2, centralBank.getCustomerList().get(0).getID());
+        assertEquals("Brendan", centralBank.getCustomerList().get(2).getName());
+        assertEquals(2, centralBank.getCustomerList().get(2).getID());
 
         testBankTeller.registerCustomer(centralBank, "Warren", "213");
         assertEquals(4 ,centralBank.getCustomerList().size());
-        assertEquals("Warren", centralBank.getCustomerList().get(0).getName());
-        assertEquals(3, centralBank.getCustomerList().get(0).getID());
+        assertEquals("Warren", centralBank.getCustomerList().get(3).getName());
+        assertEquals(3, centralBank.getCustomerList().get(3).getID());
 
     }
 
