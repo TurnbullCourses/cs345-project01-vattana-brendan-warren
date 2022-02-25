@@ -2,7 +2,6 @@ package edu.ithaca.dturnbull.bank;
 import java.util.ArrayList;
 
 public class Customer {
-
     String name;   
     int customerID;
     String password;

@@ -5,5 +5,6 @@ class CheckingAccount extends Account {
         super(balanceIn, nextAccountID);
         this.balance = balanceIn;
         this.accountID = nextAccountID;
+        this.saving = false;
     }
 }

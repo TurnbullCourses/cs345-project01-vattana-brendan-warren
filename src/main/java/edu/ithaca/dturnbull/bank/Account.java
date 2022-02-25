@@ -9,7 +9,7 @@ public class Account {
     protected List<List<Double>> history;
     protected List<Double> withdrawals;
     protected List<Double> deposits;
-
+    protected Boolean saving = false;
 
     public Account(double balanceIn, int accountIDIn) {
         if (isAmountValid(balanceIn)) {

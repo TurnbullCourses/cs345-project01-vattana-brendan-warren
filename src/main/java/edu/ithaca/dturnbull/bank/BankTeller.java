@@ -1,28 +1,51 @@
 package edu.ithaca.dturnbull.bank;
 
+import java.util.List;
+
 public class BankTeller extends Teller {
     private int tellerID;
+    private List<Customer> customerList;
+    
    
     public BankTeller(CentralBank centralBank) {
-        super();
+        super(centralBank);
+        customerList = centralBank.getCustomerList();
         tellerID = centralBank.getNextBankTellerID();
         centralBank.increaseBankTellerID();
+        
     }
     
-    public void createAccount(CentralBank centralBank, Customer customer, double balance, Boolean saving) {
+    public void createAccount(CentralBank centralBank, String customerName, double balance, Boolean saving) {
         if (saving) {
-            Account savingAccount = new SavingAccount(balance, centralBank.getNextAccountID(), 0.05, 1000);
+            SavingAccount savingAccount = new SavingAccount(balance, centralBank.getNextAccountID(), 0.05, 1000);
             centralBank.increaseAccountID();
-            customer.addAccount(savingAccount);
+            for (Customer customerToFind: customerList) {
+                if (customerToFind.getName() == customerName) {
+                    customerToFind.addAccount(savingAccount);
+                }
+            }
         } else {
-            Account checkingAccount = new CheckingAccount(balance, centralBank.getNextAccountID());
+            CheckingAccount checkingAccount = new CheckingAccount(balance, centralBank.getNextAccountID());
             centralBank.increaseAccountID();
-            customer.addAccount(checkingAccount);
+            for (Customer customerToFind: customerList) {
+                if (customerToFind.getName() == customerName) {
+                    customerToFind.addAccount(checkingAccount);
+                }
+            }
         }
     }
 
-    public void closeAccount(CentralBank centralBank, Customer customer, Account account) {
-        customer.removeAccount(account);
+    public void closeAccount(CentralBank centralBank, String customerName, int accountID) {
+        for (Customer customerToFind: customerList) {
+            if (customerToFind.getName() == customerName) {
+                List<Account> accountList = customerToFind.getAccounts();
+                for (Account accountToClose: accountList) {
+                    if (accountToClose.accountID == accountID) {
+                        customerToFind.removeAccount(accountToClose);
+                    }
+                }
+            }
+        }
     }
 
     public int getID() {
