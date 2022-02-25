@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TellerTest {
     @Test
     void bankTellerTests() throws InsufficientFundsException {
-        idTestForBankTeller();
+       // idTestForBankTeller();
         registerCustomerTest();
         //closeAccountTest();
     }
@@ -41,7 +41,7 @@ public class TellerTest {
         bankTeller1.createAccount(chase, "Kenny", 500, false); //create a checking account
         assertEquals(2, chase.getCustomerList().get(0).getAccounts().size()); //the customer now has two accounts
 
-        bankTeller1.closeAccount(chase, "Kenny", true);
+        bankTeller1.closeAccount(chase, "Kenny", false);
         assertEquals(1, chase.getCustomerList().get(0).getAccounts().size()); //the customer now has only 1 account
 
         bankTeller1.closeAccount(chase, "Kenny", false);
@@ -115,8 +115,32 @@ public class TellerTest {
     }
 
     @Test
-    void depositTestForBankTellerAndAtm() {
-        
+    void depositTestForBankTellerAndAtm() throws InsufficientFundsException {
+        CentralBank chase = new CentralBank();
+        BankTeller bankTeller1 = new BankTeller(chase);
+        ATM atm1 = new ATM(chase, "Ithaca City");
+
+        bankTeller1.registerCustomer(chase, "Kelly", "123");
+
+        //bankteller deposit test for checking account
+        bankTeller1.createAccount(chase, "Kelly", 0, false);
+
+        bankTeller1.deposit("Kelly", false, 1000);
+        assertEquals(1000, bankTeller1.checkAccountBalance("Kelly", false)); 
+
+        //atm deposit test for checking acount
+        atm1.deposit("Kelly", false, 500);
+        assertEquals(1500, bankTeller1.checkAccountBalance("Kelly", false)); 
+
+        //bankteller deposit for saving account
+        bankTeller1.createAccount(chase, "Kelly", 10000, true);
+
+        bankTeller1.deposit("Kelly", true, 900);
+        assertEquals(10900, bankTeller1.checkAccountBalance("Kelly", true)); 
+
+        //atm deposit test for saving account
+        atm1.deposit("Kelly", true, 100);
+        assertEquals(11000, bankTeller1.checkAccountBalance("Kelly", true)); 
     }
 
     @Test
