@@ -29,7 +29,7 @@ public class BankTeller extends Teller {
         return tellerID;
     }
 
-    public void registerCustomer() {
-
+    public void registerCustomer(String name, String password) {
+        
     }
 }

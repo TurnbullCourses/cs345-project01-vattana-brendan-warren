@@ -131,7 +131,7 @@ class BankAccountTest {
 
     @Test
     void addAccountTest() {
-        Customer customer = new Customer("Brendan", "00001", "password");
+        Customer customer = new Customer("Brendan", 00001, "password");
         Account account1 = new Account(1000, 000001);
         Account account2 = new Account(1000, 000002);
         customer.addAccount(account1);
@@ -144,7 +144,7 @@ class BankAccountTest {
 
     @Test
     void removeAccountTest() {
-        Customer customer = new Customer("Brendan", "00001", "password");
+        Customer customer = new Customer("Brendan", 00001, "password");
         Account account1 = new Account(1000, 000001);
         Account account2 = new Account(1000, 000002);
         customer.addAccount(account1);

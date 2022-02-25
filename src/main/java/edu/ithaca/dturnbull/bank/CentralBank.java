@@ -7,6 +7,7 @@ public class CentralBank {
     private static List<List<Teller>> tellerList;
     private static List<Teller> atmList;
     private static List<Teller> bankTellerList;
+    private static int nextCustomerID = 0;
     private static int nextAccountID = 0;
     private static int nextAtmID = 0;
     private static int nextBankTellerID = 0;
@@ -23,6 +24,10 @@ public class CentralBank {
         customerList.add(customer);
     }
 
+    public int getNextCustomerID() {
+        return nextCustomerID;
+    }
+
     public int getNextAccountID() {
         return nextAccountID;
     }
@@ -33,6 +38,10 @@ public class CentralBank {
 
     public int getNextBankTellerID() {
         return nextBankTellerID;
+    }
+
+    public void increaseCustomerID() {
+        nextCustomerID++;
     }
 
     public void increaseAccountID() {
@@ -47,5 +56,8 @@ public class CentralBank {
         nextBankTellerID++;
     }
 
+    public List<Customer> getCustomerList() {
+        return customerList;
+    }
    
 }

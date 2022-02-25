@@ -15,4 +15,8 @@ public class ATM extends Teller {
         return tellerID;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
 }

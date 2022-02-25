@@ -18,7 +18,7 @@ public class TellerTest {
         assertEquals(2, bankTeller3.getID());
         
         //create account test
-        Customer customer1 = new Customer("Brendan", "001", "omg");
+        Customer customer1 = new Customer("Brendan", 001, "omg");
       
         bankTeller1.createAccount(chase, customer1, 500, true);
 
@@ -35,8 +35,22 @@ public class TellerTest {
 
         bankTeller1.closeAccount(customer1, customer1.getAccounts().get(0));
         assertEquals(0, customer1.accounts.size());
+
+
+
+        registerCustomerTest(chase); //test for registering new customers
     }
-    
+
+    void registerCustomerTest(CentralBank centralBank) {
+        BankTeller testBankTeller = new BankTeller(centralBank);
+        testBankTeller.registerCustomer("Vattana", "123");
+
+        assertEquals(1 ,centralBank.getCustomerList().size());
+
+        
+    }
+
+    @Test
     void atmTest() {
         //id test
         CentralBank bank = new CentralBank();

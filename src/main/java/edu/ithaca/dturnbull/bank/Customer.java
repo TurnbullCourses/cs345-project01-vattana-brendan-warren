@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class Customer {
 
     String name;   
-    String customerID;
+    int customerID;
     String password;
     ArrayList<Account> accounts;
 
-    public Customer(String nameIn, String customerID, String password) {
+    public Customer(String nameIn, int customerID, String password) {
         this.name = nameIn;
         this.customerID = customerID;
         this.password = password;
