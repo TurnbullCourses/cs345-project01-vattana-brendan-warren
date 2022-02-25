@@ -43,23 +43,25 @@ public class TellerTest {
 
     void registerCustomerTest(CentralBank centralBank) {
         BankTeller testBankTeller = new BankTeller(centralBank);
-        testBankTeller.registerCustomer("Vattana", "123");
+        testBankTeller.registerCustomer(centralBank, "Vattana", "123");
         assertEquals(1 ,centralBank.getCustomerList().size());
-
-        testBankTeller.registerCustomer("Vattana", "123");
-        assertEquals(2 ,centralBank.getCustomerList().size());
         assertEquals("Vattana", centralBank.getCustomerList().get(0).getName());
         assertEquals(0, centralBank.getCustomerList().get(0).getID());
 
-        testBankTeller.registerCustomer("Brendan", "321");
+        testBankTeller.registerCustomer(centralBank, "Karren", "123");
         assertEquals(2 ,centralBank.getCustomerList().size());
-        assertEquals("Brendan", centralBank.getCustomerList().get(0).getName());
+        assertEquals("Karren", centralBank.getCustomerList().get(0).getName());
         assertEquals(1, centralBank.getCustomerList().get(0).getID());
 
-        testBankTeller.registerCustomer("Vattana", "213");
+        testBankTeller.registerCustomer(centralBank, "Brendan", "321");
         assertEquals(3 ,centralBank.getCustomerList().size());
         assertEquals("Brendan", centralBank.getCustomerList().get(0).getName());
-        assertEquals(1, centralBank.getCustomerList().get(0).getID());
+        assertEquals(2, centralBank.getCustomerList().get(0).getID());
+
+        testBankTeller.registerCustomer(centralBank, "Warren", "213");
+        assertEquals(4 ,centralBank.getCustomerList().size());
+        assertEquals("Warren", centralBank.getCustomerList().get(0).getName());
+        assertEquals(3, centralBank.getCustomerList().get(0).getID());
 
     }
 

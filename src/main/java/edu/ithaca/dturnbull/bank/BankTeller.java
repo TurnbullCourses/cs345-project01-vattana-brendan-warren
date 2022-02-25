@@ -21,7 +21,7 @@ public class BankTeller extends Teller {
         }
     }
 
-    public void closeAccount(Customer customer, Account account) {
+    public void closeAccount(CentralBank centralBank, Customer customer, Account account) {
         customer.removeAccount(account);
     }
 
@@ -30,6 +30,7 @@ public class BankTeller extends Teller {
     }
 
     public void registerCustomer(String name, String password) {
-        
+        Customer newCustomer = new Customer(name, customerID, password);
+        central
     }
 }
