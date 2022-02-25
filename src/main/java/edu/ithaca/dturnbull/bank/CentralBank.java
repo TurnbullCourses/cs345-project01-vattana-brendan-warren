@@ -14,10 +14,10 @@ public class CentralBank {
 
     public CentralBank() {
         customerList = new ArrayList<>();
-        atmList = new ArrayList<>();
-        bankTellerList = new ArrayList<>();
-        tellerList.add(bankTellerList);
-        tellerList.add(atmList);
+        //atmList = new ArrayList<>();
+        //bankTellerList = new ArrayList<>();
+        //tellerList.add(bankTellerList);
+        //tellerList.add(atmList);
     }
 
     public void addCustomer(Customer customer) {
