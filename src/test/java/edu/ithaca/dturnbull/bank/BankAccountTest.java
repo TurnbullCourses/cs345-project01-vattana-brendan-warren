@@ -8,27 +8,28 @@ class BankAccountTest {
     @Test
     void constructorAndCheckAccountBalanceTest() {
         // check CheckingAccount constructor
-        Account brendan = new CheckingAccount(50, "001");
+        Account brendan = new CheckingAccount(50, 001);
         assertEquals(50, brendan.checkAccountBalance());
 
-        Account warren = new CheckingAccount(0.01, "002");
+        Account warren = new CheckingAccount(0.01, 002);
         assertEquals(0.01, warren.checkAccountBalance());
+        
 
         // check SavingAccount constructor
-        Account blosom = new SavingAccount(100, "003", 0.06, 1000);
+        Account blosom = new SavingAccount(100, 003, 0.06, 1000);
         assertEquals(100, blosom.checkAccountBalance());
 
-        Account yennefer = new SavingAccount(75, "004", 0.06, 1000);
+        Account yennefer = new SavingAccount(75, 004, 0.06, 1000);
         assertEquals(75, yennefer.checkAccountBalance());
 
         // check throws when initializing the constructor
-        assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(-1, "001"));
-        assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(5.003, "001"));
+        assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(-1, 001));
+        assertThrows(IllegalArgumentException.class, () -> new CheckingAccount(5.003, 001));
     }
 
     @Test
     void withdrawForCheckingAccountTest() throws InsufficientFundsException {
-        Account brendan = new CheckingAccount(100, "001");
+        Account brendan = new CheckingAccount(100, 001);
         assertEquals(100, brendan.checkAccountBalance());
 
         brendan.withdraw(5);
@@ -43,7 +44,7 @@ class BankAccountTest {
 
     @Test
     void withdrawForSavingAccountTest() throws InsufficientFundsException {
-        Account brendan = new SavingAccount(10000, "001", 0.04, 1000);
+        Account brendan = new SavingAccount(10000, 001, 0.04, 1000);
         assertEquals(10000, brendan.checkAccountBalance());
 
         brendan.withdraw(5);
@@ -59,7 +60,7 @@ class BankAccountTest {
     @Test
     void depositForCheckingAndSavingAccountTest() {
         // deposit for CheckingAccount
-        Account brendan = new CheckingAccount(500, "001");
+        Account brendan = new CheckingAccount(500, 001);
         assertEquals(500, brendan.checkAccountBalance());
 
         brendan.deposit(10);
@@ -69,7 +70,7 @@ class BankAccountTest {
         assertEquals(510.01, brendan.checkAccountBalance());
 
         // deposit for SavingAccount
-        Account warren = new SavingAccount(500, "002", 0.05, 100);
+        Account warren = new SavingAccount(500, 002, 0.05, 100);
         assertEquals(500, warren.checkAccountBalance());
 
         warren.deposit(10);
@@ -81,11 +82,11 @@ class BankAccountTest {
 
     @Test
     void transferTest() throws IllegalAccessException, InsufficientFundsException {
-        Account brendanChecking = new CheckingAccount(5000, "001C");
-        Account brendanSaving = new SavingAccount(2500, "001S", 0.03, 3600);
+        Account brendanChecking = new CheckingAccount(5000, 001);
+        Account brendanSaving = new SavingAccount(2500, 001, 0.03, 3600);
 
-        Account warrenChecking = new CheckingAccount(3000, "002C");
-        Account warrenSaving = new SavingAccount(7500, "002S", 0.06, 5000);
+        Account warrenChecking = new CheckingAccount(3000, 002);
+        Account warrenSaving = new SavingAccount(7500, 002, 0.06, 5000);
 
         // Checking to Checking
         assertEquals(5000, brendanChecking.checkAccountBalance());
@@ -131,8 +132,8 @@ class BankAccountTest {
     @Test
     void addAccountTest() {
         Customer customer = new Customer("Brendan", "00001", "password");
-        Account account1 = new Account(1000, "000001");
-        Account account2 = new Account(1000, "000002");
+        Account account1 = new Account(1000, 000001);
+        Account account2 = new Account(1000, 000002);
         customer.addAccount(account1);
         assertEquals(1, customer.getAccounts().size());
         customer.addAccount(account2);
@@ -144,8 +145,8 @@ class BankAccountTest {
     @Test
     void removeAccountTest() {
         Customer customer = new Customer("Brendan", "00001", "password");
-        Account account1 = new Account(1000, "000001");
-        Account account2 = new Account(1000, "000002");
+        Account account1 = new Account(1000, 000001);
+        Account account2 = new Account(1000, 000002);
         customer.addAccount(account1);
         customer.addAccount(account2);
         assertEquals(2, customer.getAccounts().size());
@@ -158,7 +159,7 @@ class BankAccountTest {
     @Test
     void checkAccountHistory() throws InsufficientFundsException {
         //checkAccountHistory for CheckingAccount
-        Account brendan = new CheckingAccount(300, "001");
+        Account brendan = new CheckingAccount(300, 001);
         assertEquals(2, brendan.checkAccountHistory().size()); //the history list contains two lists, which are deposits and withdrawals so the size is 2
         assertEquals(0,  brendan.checkAccountHistory().get(0).size()); //deposit list is empty; therefore, the size is 0
         assertEquals(0, brendan.checkAccountHistory().get(1).size()); //withdrawal list is empty; therefore, the size is 0
@@ -180,7 +181,7 @@ class BankAccountTest {
         assertEquals(700, brendan.checkAccountHistory().get(1).get(1));
         
         //checkAccountHistory for SavingAccount
-        Account warren = new SavingAccount(500, "002", 0.05, 1000);
+        Account warren = new SavingAccount(500, 002, 0.05, 1000);
         assertEquals(2, warren.checkAccountHistory().size()); //the history list contains two lists, which are deposits and withdrawals so the size is 2
         assertEquals(0,  warren.checkAccountHistory().get(0).size()); //deposit list is empty; therefore, the size is 0
         assertEquals(0, warren.checkAccountHistory().get(1).size()); //withdrawal list is empty; therefore, the size is 0

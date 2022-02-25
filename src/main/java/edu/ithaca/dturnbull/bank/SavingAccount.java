@@ -1,14 +1,14 @@
 package edu.ithaca.dturnbull.bank;
 
-public class SavingAccount extends Account {
+public class SavingAccount extends Account{
 
     private double interestRate;
     public double maxWithdrawal;
 
-    public SavingAccount(double balanceIn, String accountIDIn, double interestRateIn, double maxWithdrawal) {
-        super(balanceIn, accountIDIn);
+    public SavingAccount(double balanceIn, int nextAccountID, double interestRateIn, double maxWithdrawal) {
+        super(balanceIn, nextAccountID);
         this.balance = balanceIn;
-        this.accountID = accountIDIn;
+        this.accountID = nextAccountID;
         this.interestRate = interestRateIn;
         this.maxWithdrawal = maxWithdrawal;
     }
