@@ -8,7 +8,7 @@ public class TellerTest {
     void bankTellerTests() throws InsufficientFundsException {
         idTestForBankTeller();
         registerCustomerTest();
-        closeAccountTest();
+        //closeAccountTest();
     }
          
     void idTestForBankTeller() {
@@ -24,8 +24,31 @@ public class TellerTest {
         assertEquals(3, bankTeller3.getID());
     }
 
+    @Test
     void closeAccountTest() {
+        CentralBank chase = new CentralBank();
+        BankTeller bankTeller1 = new BankTeller(chase);
+        assertEquals(0, chase.getCustomerList().size());
 
+        bankTeller1.registerCustomer(chase, "Kenny", "123"); //register a customer
+
+        assertEquals(1, chase.getCustomerList().size());
+        assertEquals(0, chase.getCustomerList().get(0).getAccounts().size()); //the customer doesn't have any accounts yet
+
+        bankTeller1.createAccount(chase, "Kenny", 500, true); //create a saving account
+        assertEquals(1, chase.getCustomerList().get(0).getAccounts().size()); //the customer now has an account
+
+        bankTeller1.createAccount(chase, "Kenny", 500, false); //create a checking account
+        assertEquals(2, chase.getCustomerList().get(0).getAccounts().size()); //the customer now has two accounts
+
+        bankTeller1.closeAccount(chase, "Kenny", true);
+        assertEquals(1, chase.getCustomerList().get(0).getAccounts().size()); //the customer now has only 1 account
+
+        bankTeller1.closeAccount(chase, "Kenny", false);
+        assertEquals(1, chase.getCustomerList().get(0).getAccounts().size()); //the customer doesn't have any more checking account to close
+
+        bankTeller1.closeAccount(chase, "Kenny", true);
+        assertEquals(0, chase.getCustomerList().get(0).getAccounts().size()); //the customer doesn't have any more account
     }
          
     @Test

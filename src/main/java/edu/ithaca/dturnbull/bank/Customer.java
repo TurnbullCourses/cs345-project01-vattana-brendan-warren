@@ -19,7 +19,11 @@ public class Customer {
     }
 
     public void removeAccount(Account accountToDelete) {
-        accounts.remove(accountToDelete);
+        if (accounts.contains(accountToDelete)) {
+            accounts.remove(accountToDelete);
+        } else {
+
+        }
     }
 
     public ArrayList<Account> getAccounts() {

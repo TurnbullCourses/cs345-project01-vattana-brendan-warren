@@ -35,12 +35,12 @@ public class BankTeller extends Teller {
         }
     }
 
-    public void closeAccount(CentralBank centralBank, String customerName, int accountID) {
+    public void closeAccount(CentralBank centralBank, String customerName, Boolean savingOrNot) {
         for (Customer customerToFind: customerList) {
             if (customerToFind.getName() == customerName) {
                 List<Account> accountList = customerToFind.getAccounts();
                 for (Account accountToClose: accountList) {
-                    if (accountToClose.accountID == accountID) {
+                    if (accountToClose.saving == savingOrNot) {
                         customerToFind.removeAccount(accountToClose);
                     }
                 }
