@@ -6,11 +6,10 @@ public class ATM extends Teller {
     
     public ATM(CentralBank centralBank, String atmLocation) {
         super();
-        tellerID = centralBank.nextBankTellerID;
+        tellerID = centralBank.getNextAtmID();
         location = atmLocation;
-        centralBank.nextBankTellerID++;
+        centralBank.increaseAtmID();
     }
-
 
     public int getID() {
         return tellerID;
