@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Account {
     protected double balance;
-    protected String accountID;
+    protected int accountID;
     protected List<List<Double>> history;
     protected List<Double> withdrawals;
     protected List<Double> deposits;
     protected boolean active;
+    protected boolean saving = false;
 
-
-    public Account(double balanceIn, String accountIDIn) {
+    public Account(double balanceIn, int accountIDIn) {
         if (isAmountValid(balanceIn)) {
             balance = balanceIn;
             accountID = accountIDIn;
@@ -126,7 +126,6 @@ public class Account {
     }
 
     public static int subtract(int a, int b){
-        // TODO : merge to main before branch split
         return a-b;
     }
 }

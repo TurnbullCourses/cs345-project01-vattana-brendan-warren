@@ -36,9 +36,9 @@ public class TextInterface {
         String userName = scan.nextLine();
         System.out.println("Enter password:");
         String password = scan.nextLine();
-        Customer myCustomer = new Customer(userName, "customer1", password);
-        myCustomer.addAccount(new CheckingAccount(100, "checking1"));
-        myCustomer.addAccount(new SavingAccount(100, "saving", 1.08, 500));
+        Customer myCustomer = new Customer(userName, 001, password);
+        myCustomer.addAccount(new CheckingAccount(100, 001));
+        myCustomer.addAccount(new SavingAccount(100, 001, 1.08, 500));
         System.out.println("Welcome " + myCustomer.getName() + "! Your ID is customer1 and your password is " + myCustomer.getPassword());
         System.out.println("You have been given a CHECKING and SAVINGS account, each with balance $100.00.");
 
@@ -57,7 +57,7 @@ public class TextInterface {
                         int accountType = scan.nextInt();
                         System.out.println("How much do you wish to deposit?");
                         double amount = scan.nextDouble();
-                        if (BankAccount.isAmountValid(amount)) {
+                        if (Account.isAmountValid(amount)) {
                             if (accountType == 1) {
                                 myCustomer.getAccounts().get(0).deposit(amount);
                                 System.out.println("Deposit successful.");
@@ -150,15 +150,13 @@ public class TextInterface {
     private static void handleTeller() throws IllegalAccessException, InsufficientFundsException {
         Scanner scan = new Scanner(System.in);
 
-        Teller teller = new Teller("SuperTeller");
+        Customer customer1 = new Customer("Doug", 001, "password1");
+        customer1.addAccount(new CheckingAccount(1000, 01));
 
-        Customer customer1 = new Customer("Doug", "customer1", "password1");
-        customer1.addAccount(new CheckingAccount(1000, "checking1"));
+        Customer customer2 = new Customer("John", 002, "password2");
+        customer2.addAccount(new CheckingAccount(1000, 01));
 
-        Customer customer2 = new Customer("John", "customer2", "password2");
-        customer2.addAccount(new CheckingAccount(1000, "checking2"));
-
-        System.out.println("Welcome " + teller.tellerID);
+        System.out.println("Welcome Teller");
         System.out.println("You are working with two customers, Doug and John, who both have an active CHECKING account with $1000.00.");
 
         String tellerCore = "ENTER";

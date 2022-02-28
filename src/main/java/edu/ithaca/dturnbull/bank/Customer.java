@@ -2,13 +2,12 @@ package edu.ithaca.dturnbull.bank;
 import java.util.ArrayList;
 
 public class Customer {
-
     String name;   
-    String customerID;
+    int customerID;
     String password;
     ArrayList<Account> accounts;
 
-    public Customer(String nameIn, String customerID, String password) {
+    public Customer(String nameIn, int customerID, String password) {
         this.name = nameIn;
         this.customerID = customerID;
         this.password = password;
@@ -21,13 +20,10 @@ public class Customer {
 
     public void removeAccount(Account accountToDelete) {
         accounts.remove(accountToDelete);
+      
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getCustomerID() {
+    public int getCustomerID() {
         return customerID;
     }
 
@@ -39,4 +35,15 @@ public class Customer {
         return this.accounts;
     }
     
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return customerID;
+    }
+
+    public void changePassword(String newPassword) {
+        password = newPassword;
+    }
 }
