@@ -12,7 +12,7 @@ Watson II, Warren
 ### <a href="https://drive.google.com/file/d/1J5QexmdhANbXOvO_YO2TbHk_fsNRquOM/view?usp=sharing">UML Class Diagram</a> 
 
 ### Sequence Diagrams:
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Customer</a> - Brendan <br />
+<a href="https://drive.google.com/file/d/1mimmGlmgCnseF1RS0Ejcet_wsnLynK_T/view?usp=sharing">Customer</a> - Brendan <br />
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Bank Teller</a> - Vattana <br />
 <a href="https://drive.google.com/file/d/19aXXdxYxzp4MCxit3D6zb2nSXQdTsf9y/view?usp=sharing">Administrator</a> - Warren 
 
