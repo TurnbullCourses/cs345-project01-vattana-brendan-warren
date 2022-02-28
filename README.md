@@ -13,8 +13,11 @@ Watson II, Warren
 
 ### Sequence Diagrams:
 <a href="https://drive.google.com/file/d/1mimmGlmgCnseF1RS0Ejcet_wsnLynK_T/view?usp=sharing">Customer</a> - Brendan <br />
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Bank Teller</a> - Vattana <br />
+<a href="https://drive.google.com/file/d/1joZQo1LZrdiYKs8pjeF3l2tPpPQkarvG/view?usp=sharing">Bank Teller</a> - Vattana <br />
 <a href="https://drive.google.com/file/d/19aXXdxYxzp4MCxit3D6zb2nSXQdTsf9y/view?usp=sharing">Administrator</a> - Warren 
+
+### State Diagram:
+<a href="https://drive.google.com/file/d/115DwmNyf3r-KvZFmFShCDv5LmI3LgeH3/view?usp=sharing"></a>
 
 ### <a href="https://docs.google.com/document/d/1RlGrre4cF45_GZcOnfehQFb-hbMILlEDViGiKopbgdE/edit?usp=sharing">User Test Script</a> 
 
