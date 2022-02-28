@@ -9,6 +9,7 @@ public class Account {
     protected List<List<Double>> history;
     protected List<Double> withdrawals;
     protected List<Double> deposits;
+    protected boolean active;
 
 
     public Account(double balanceIn, String accountIDIn) {
@@ -24,6 +25,7 @@ public class Account {
         withdrawals = new ArrayList<>();
         history.add(deposits);
         history.add(withdrawals);
+        active = true;
     }
 
     public List<List<Double>> checkAccountHistory() {
@@ -93,6 +95,30 @@ public class Account {
         }
 
         return true;
+    }
+
+    /***
+     * @return none
+     * sets active variable to false
+     */
+    public void freeze() {
+        this.active = false;
+    }
+
+    /***
+     * @return none
+     * sets active variable to true
+     */
+    public void unfreeze() {
+        this.active = true;
+    }
+
+    /***
+     * @return none
+     * returns status of active variable
+     */
+    public boolean isFrozen() {
+        return !this.active;
     }
 
     public static int add(int a, int b) {
