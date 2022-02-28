@@ -3,12 +3,13 @@ package edu.ithaca.dturnbull.bank;
 import java.util.Scanner;
 
 public class TextInterface {
-    public static void main(String[] args) throws InsufficientFundsException {
+    public static void main(String[] args) throws InsufficientFundsException, IllegalAccessException {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to CentralBank!");
         System.out.println("1 - CUSTOMER");
         System.out.println("2 - ADMIN");
+        System.out.println("3 - TELLER");
         System.out.println("Enter the number to match your user type:");
         String userType = scan.nextLine();
 
@@ -17,7 +18,10 @@ public class TextInterface {
                 handleCustomer();
                 break;
             case "2" : 
-                handleAdmin();
+                // handleAdmin();
+                break;
+            case "3" :
+                handleTeller();
                 break;
         }
 
@@ -90,6 +94,7 @@ public class TextInterface {
         scan.close();
     }
 
+    /*
     private static void handleAdmin() {
         Scanner scan = new Scanner(System.in);
         Admin admin = new Admin("SuperAdmin", "SuperAdminPassword");
@@ -139,13 +144,74 @@ public class TextInterface {
             adminCore = scan.nextLine();
         }
         scan.close();
+    } 
+    */
+
+    private static void handleTeller() throws IllegalAccessException, InsufficientFundsException {
+        Scanner scan = new Scanner(System.in);
+
+        Teller teller = new Teller("SuperTeller");
+
+        Customer customer1 = new Customer("Doug", "customer1", "password1");
+        customer1.addAccount(new CheckingAccount(1000, "checking1"));
+
+        Customer customer2 = new Customer("John", "customer2", "password2");
+        customer2.addAccount(new CheckingAccount(1000, "checking2"));
+
+        System.out.println("Welcome " + teller.tellerID);
+        System.out.println("You are working with two customers, Doug and John, who both have an active CHECKING account with $1000.00.");
+
+        String tellerCore = "ENTER";
+        while (tellerCore != "Q\n") {
+            
+            switch (tellerCore) {
+                case "1" : 
+                    System.out.println("Which customer do you want to transfer from?");
+                    System.out.println("1 - DOUG");
+                    System.out.println("2 - JOHN");
+                    int fromAccount = scan.nextInt();
+                    double fromBalance;
+                    if (fromAccount == 1) {
+                        fromBalance = customer1.getAccounts().get(0).checkAccountBalance();
+                    } else if (fromAccount == 2) {
+                        fromBalance = customer2.getAccounts().get(0).checkAccountBalance();
+                    } else {
+                        break;
+                    }
+                    
+                    System.out.println("How much do you want to transfer?");
+                    double amount = scan.nextDouble();
+
+                    if (fromBalance > amount) {
+                        if (fromAccount == 1) {
+                            customer1.getAccounts().get(0).transfer(amount, customer2.getAccounts().get(0));
+                            System.out.println("Transfer successful.");
+                            System.out.println(customer1.getName() + " successfully transfered $" + amount + " to " + customer2.getName());
+                        }
+                        if (fromAccount == 2) {
+                            customer2.getAccounts().get(0).transfer(amount, customer1.getAccounts().get(0));
+                            System.out.println("Transfer successful.");
+                            System.out.println(customer2.getName() + " successfully transfered $" + amount + " to " + customer1.getName());
+                        } 
+                        System.out.println(customer1.getName() + "'s new balance : $" + customer1.getAccounts().get(0).checkAccountBalance());
+                        System.out.println(customer2.getName() + "'s new balance : $" + customer2.getAccounts().get(0).checkAccountBalance());
+                    } else {
+                        System.out.println("Insufficient funds.");
+                    }
+                    break;
+            }
+            displayTellerOptions();
+            tellerCore = scan.nextLine();
+        }
+        scan.close();
     }
 
+    
     private static void displayCustomerOptions() {
         System.out.println("Choose from the following:");
         System.out.println("1 - DEPOSIT FUNDS");
         System.out.println("2 - CHECK ACCOUNT BALANCE");
-        System.out.println("Q - QUIT"); 
+        System.out.println("CTRL+C - QUIT"); 
         System.out.println(""); 
     }
 
@@ -153,7 +219,14 @@ public class TextInterface {
         System.out.println("Choose from the following:");
         System.out.println("1 - FREEZE ACCOUNT");
         System.out.println("2 - UNFREEZE ACCOUNT");
-        System.out.println("Q - QUIT"); 
+        System.out.println("CTRL+C - QUIT"); 
+        System.out.println(""); 
+    }
+
+    private static void displayTellerOptions() {
+        System.out.println("Choose from the following:");
+        System.out.println("1 - TRANSFER");
+        System.out.println("CTRL+C - QUIT"); 
         System.out.println(""); 
     }
 
