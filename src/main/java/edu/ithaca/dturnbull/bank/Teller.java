@@ -16,18 +16,22 @@ public class Teller {
         //    fromAccount.transfer(amount, toAccount);
         //}
 
-      // String fromCustomerID = "";
-      // String toCustomerName = "";
-      // boolean fromCustomerSaving = fromAccountSavingOrNot;
-      // boolean toCustomerSaving = toAccountSavingOrNot;
-      // for (Customer customer: customerList) {
-      //     if (customer.getName() == fromCustomer) {
-      //         fromCustomerName = customer.getName();
-      //     }
-      //     if (customer.getName() == toCustomer) {
-      //         toCustomerName = customer.getName();
-      //     }
-      // }
+        for (Customer customer: customerList) {
+            if (customer.getName() == fromCustomer) {
+                for (Account fromAccount: customer.accounts) {
+                    if (fromAccount.saving == fromAccountSavingOrNot) {
+                        fromAccount.withdraw(amount);
+                    }
+                }
+            }
+            if (customer.getName() == toCustomer) {
+                for (Account toAccount: customer.accounts) {
+                    if (toAccount.saving == fromAccountSavingOrNot) {
+                        toAccount.deposit(amount);
+                    }
+                }
+            }
+        }
     }
 
     protected void deposit(String customerName, Boolean savingOrNot, double amount) throws InsufficientFundsException {
