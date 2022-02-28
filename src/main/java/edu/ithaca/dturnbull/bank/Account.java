@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Account {
     protected double balance;
-    protected String accountID;
+    protected int accountID;
     protected List<List<Double>> history;
     protected List<Double> withdrawals;
     protected List<Double> deposits;
+    protected Boolean saving = false;
 
-
-    public Account(double balanceIn, String accountIDIn) {
+    public Account(double balanceIn, int accountIDIn) {
         if (isAmountValid(balanceIn)) {
             balance = balanceIn;
             accountID = accountIDIn;
