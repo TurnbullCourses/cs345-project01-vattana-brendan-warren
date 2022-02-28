@@ -1,33 +1,27 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6983873&assignment_repo_type=AssignmentRepo)
 # CS345 - Software Engineering at Ithaca College
-## Project 01 - Bank Software
+## Project 01 - Bank Software : Group 03
 
-Names:
-<< add 3-4 names here >>
+##### Names:
+Chan, Pichsereyvattana <br />
+McMahan, Brendan  <br />
+Watson II, Warren
 
-Link to UML Use Case Diagram:
-<< add linkk here >>
+### <a href="https://app.diagrams.net/#G1osYAV5I6hBkbmQYYV0EVdsINlPsfCrlB">Use Cases Diagram</a> 
 
-Link to UML Class Diagram:
-<< add link here >>
+### <a href="https://drive.google.com/file/d/1J5QexmdhANbXOvO_YO2TbHk_fsNRquOM/view?usp=sharing">UML Class Diagram</a> 
 
-Three Use Cases that you will implement first:
-1. -
-2. - 
-3. - 
+### Sequence Diagrams:
+<a href="https://drive.google.com/file/d/1mimmGlmgCnseF1RS0Ejcet_wsnLynK_T/view?usp=sharing">Customer</a> - Brendan <br />
+<a href="https://drive.google.com/file/d/1joZQo1LZrdiYKs8pjeF3l2tPpPQkarvG/view?usp=sharing">Bank Teller</a> - Vattana <br />
+<a href="https://drive.google.com/file/d/19aXXdxYxzp4MCxit3D6zb2nSXQdTsf9y/view?usp=sharing">Administrator</a> - Warren 
 
-Which classes & methods do you need to implement for these use cases?
-(Indicated which team member is responsible for the implemenation)
-1. -
-2. -
-3. -
-4. -
-5. << add more as needed >>
+### State Diagram:
+<a href="https://drive.google.com/file/d/115DwmNyf3r-KvZFmFShCDv5LmI3LgeH3/view?usp=sharing">Diagram</a>
 
-Don't forget to use Test-Driven Development (TDD)
-1. Write Class and Method Function Headers
-2. Write Tests
-3. Implement Method Functions
+### <a href="https://docs.google.com/document/d/1RlGrre4cF45_GZcOnfehQFb-hbMILlEDViGiKopbgdE/edit?usp=sharing">User Test Script</a> 
 
-Good Luck!
-
+### Members Work Allocation
+Vattana: Class dependency, moderate implementation, moderate testing <br />
+Brendan: UI, moderate implementation, moderate testing <br />
+Warren: N/A
