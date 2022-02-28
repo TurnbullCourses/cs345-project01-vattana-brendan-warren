@@ -20,7 +20,20 @@ public class Customer {
 
     public void removeAccount(Account accountToDelete) {
         accounts.remove(accountToDelete);
-      
+    }
+
+    public boolean hasValidAccountList() {
+        int checkCounter = 0;
+        int savingCounter = 0;
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getClass() == CheckingAccount.class) {
+                checkCounter++;
+            }
+            if (accounts.get(i).getClass() == SavingAccount.class) {
+                savingCounter++;
+            }
+        }
+        return (checkCounter <= 1) && (savingCounter <= 1) ;
     }
 
     public int getCustomerID() {

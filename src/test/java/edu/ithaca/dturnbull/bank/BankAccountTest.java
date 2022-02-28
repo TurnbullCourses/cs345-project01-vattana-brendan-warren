@@ -143,6 +143,20 @@ class BankAccountTest {
     }
 
     @Test
+    void validAccountListIntegrationTest() {
+        Customer customer = new Customer("Brendan", 00001, "password");
+        assertTrue(customer.hasValidAccountList());
+        customer.addAccount(new CheckingAccount(100, 1));
+        customer.addAccount(new SavingAccount(100, 2, 1.08, 100));
+        assertTrue(customer.hasValidAccountList());
+        Account extraAccount = new CheckingAccount(100, 3);
+        customer.addAccount(extraAccount);
+        assertFalse(customer.hasValidAccountList());
+        customer.removeAccount(extraAccount);
+        assertTrue(customer.hasValidAccountList());
+    }
+
+    @Test
     void removeAccountTest() {
         Customer customer = new Customer("Brendan", 00001, "password");
         Account account1 = new Account(1000, 000001);
