@@ -10,6 +10,7 @@ public class Account {
     protected List<Double> withdrawals;
     protected List<Double> deposits;
     protected Boolean saving = false;
+    protected boolean frozen;
 
     public Account(double balanceIn, int accountIDIn) {
         if (isAmountValid(balanceIn)) {
@@ -35,6 +36,7 @@ public class Account {
     }
 
     public void withdraw (double amount) throws InsufficientFundsException{
+        if (this.frozen) {return;}
         if (!isAmountValid(amount)) {
             throw new IllegalArgumentException("The amount entered should be postive or have 2 decimal places or less.");
         }
@@ -57,6 +59,7 @@ public class Account {
      * @post the amount is deposited into the account
      */
     public void deposit(double amount) {
+        if (this.frozen) {return;}
         if (!isAmountValid(amount)) {
             throw new IllegalArgumentException("The amount entered should be postive or have 2 decimal places or less.");
         } else {
@@ -72,6 +75,7 @@ public class Account {
      * @post the amount is deducted from your account and transferred to the account associated with the email entered
      */
     public void transfer(double amount, Account recipientAccount) throws IllegalAccessException, InsufficientFundsException {
+        if (this.frozen) {return;}
         withdraw(amount);
         recipientAccount.deposit(amount);
     }
@@ -93,6 +97,18 @@ public class Account {
         }
 
         return true;
+    }
+
+    public void freeze() {
+        this.frozen = true;
+    }
+
+    public void unfreeze() {
+        this.frozen = false;
+    }
+
+    public boolean isFrozen() {
+        return this.frozen;
     }
 
     public static int add(int a, int b) {
