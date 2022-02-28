@@ -18,7 +18,7 @@ public class TextInterface {
                 handleCustomer();
                 break;
             case "2" : 
-                // handleAdmin();
+                handleAdmin();
                 break;
             case "3" :
                 handleTeller();
@@ -26,7 +26,6 @@ public class TextInterface {
         }
 
         scan.close();
-
 
     }
 
@@ -40,7 +39,7 @@ public class TextInterface {
         myCustomer.addAccount(new CheckingAccount(100, 001));
         myCustomer.addAccount(new SavingAccount(100, 001, 1.08, 500));
         System.out.println("Welcome " + myCustomer.getName() + "! Your ID is customer1 and your password is " + myCustomer.getPassword());
-        System.out.println("You have been given a CHECKING and SAVINGS account, each with balance $100.00.");
+        System.out.println("You have been given a CHECKING and SAVINGS account, each with balance $100.00.\n");
 
         String userCore = "ENTER";
         while (userCore != "Q\n") {
@@ -61,14 +60,14 @@ public class TextInterface {
                             if (accountType == 1) {
                                 myCustomer.getAccounts().get(0).deposit(amount);
                                 System.out.println("Deposit successful.");
-                                System.out.println("New amount of CHECKING account: " + myCustomer.getAccounts().get(0).checkAccountBalance());
+                                System.out.println("New amount of CHECKING account: " + myCustomer.getAccounts().get(0).checkAccountBalance() + "\n");
                             } else if (accountType == 2) {
                                 myCustomer.getAccounts().get(1).deposit(amount);
                                 System.out.println("Deposit successful.");
-                                System.out.println("New amount of SAVING account: " + myCustomer.getAccounts().get(1).checkAccountBalance());
+                                System.out.println("New amount of SAVING account: " + myCustomer.getAccounts().get(1).checkAccountBalance() + "\n");
                             } 
                         } else {
-                            System.out.println("Amount invalid.");
+                            System.out.println("Amount invalid.\n");
                         }
                     }   
                     break;
@@ -81,9 +80,9 @@ public class TextInterface {
                         System.out.println("2 - SAVINGS");
                         int accountType = scan.nextInt();
                         if (accountType == 1) {
-                            System.out.println("CHECKING account balance: " + myCustomer.getAccounts().get(0).checkAccountBalance());
+                            System.out.println("CHECKING account balance: " + myCustomer.getAccounts().get(0).checkAccountBalance() + "\n");
                         } else if (accountType == 2) {
-                            System.out.println("SAVING account balance: " + myCustomer.getAccounts().get(1).checkAccountBalance());
+                            System.out.println("SAVING account balance: " + myCustomer.getAccounts().get(1).checkAccountBalance() + "\n");
                         } 
                     }                           
                     break;
@@ -94,15 +93,14 @@ public class TextInterface {
         scan.close();
     }
 
-    /*
     private static void handleAdmin() {
         Scanner scan = new Scanner(System.in);
         Admin admin = new Admin("SuperAdmin", "SuperAdminPassword");
-        Customer customer1 = new Customer("Doug", "customer1", "password1");
-        customer1.addAccount(new CheckingAccount(100, "checking1"));
-        customer1.addAccount(new SavingAccount(100, "saving", 1.08, 500));
-        System.out.println("Welcome " + admin.getName() + "! Your password is " + admin.getPassword());
-        System.out.println("You are working with a customer who has a CHECKING and SAVINGS account.");
+        Customer customer1 = new Customer("Doug", 1, "password1");
+        customer1.addAccount(new CheckingAccount(100, 001));
+        customer1.addAccount(new SavingAccount(100, 1, 1.08, 500));
+        System.out.println("Welcome " + admin.getAdminID() + "! Your password is " + admin.getPassword());
+        System.out.println("You are working with a customer who has a CHECKING and SAVINGS account.\n");
 
         String adminCore = "ENTER";
         while (adminCore != "Q\n") {
@@ -117,11 +115,11 @@ public class TextInterface {
                     if (accountType == 1) {
                         customer1.getAccounts().get(0).freeze();
                         System.out.println("Account freeze successful.");
-                        System.out.println("CHECKING account FROZEN status: " + customer1.getAccounts().get(0).isFrozen());
+                        System.out.println("CHECKING account FROZEN status: " + customer1.getAccounts().get(0).isFrozen() + "\n");
                     } else if (accountType == 2) {
                         customer1.getAccounts().get(1).freeze();
                         System.out.println("Account freeze successful.");
-                        System.out.println("SAVINGS account FROZEN status: " + customer1.getAccounts().get(1).isFrozen());
+                        System.out.println("SAVINGS account FROZEN status: " + customer1.getAccounts().get(1).isFrozen() + "\n");
                     } 
                     break;
                 case "2" :
@@ -132,11 +130,11 @@ public class TextInterface {
                     if (accType == 1) {
                         customer1.getAccounts().get(0).unfreeze();
                         System.out.println("Account freeze successful.");
-                        System.out.println("CHECKING account FROZEN status: " + customer1.getAccounts().get(0).isFrozen());
+                        System.out.println("CHECKING account FROZEN status: " + customer1.getAccounts().get(0).isFrozen() + "\n");
                     } else if (accType == 2) {
                         customer1.getAccounts().get(1).unfreeze();
                         System.out.println("Account freeze successful.");
-                        System.out.println("SAVINGS account FROZEN status: " + customer1.getAccounts().get(1).isFrozen());
+                        System.out.println("SAVINGS account FROZEN status: " + customer1.getAccounts().get(1).isFrozen() + "\n");
                     } 
                     break;
             }
@@ -145,7 +143,7 @@ public class TextInterface {
         }
         scan.close();
     } 
-    */
+    
 
     private static void handleTeller() throws IllegalAccessException, InsufficientFundsException {
         Scanner scan = new Scanner(System.in);
@@ -157,7 +155,7 @@ public class TextInterface {
         customer2.addAccount(new CheckingAccount(1000, 01));
 
         System.out.println("Welcome Teller");
-        System.out.println("You are working with two customers, Doug and John, who both have an active CHECKING account with $1000.00.");
+        System.out.println("You are working with two customers, Doug and John, who both have an active CHECKING account with $1000.00.\n");
 
         String tellerCore = "ENTER";
         while (tellerCore != "Q\n") {
@@ -184,17 +182,17 @@ public class TextInterface {
                         if (fromAccount == 1) {
                             customer1.getAccounts().get(0).transfer(amount, customer2.getAccounts().get(0));
                             System.out.println("Transfer successful.");
-                            System.out.println(customer1.getName() + " successfully transfered $" + amount + " to " + customer2.getName());
+                            System.out.println(customer1.getName() + " successfully transfered $" + amount + " to " + customer2.getName() + "\n");
                         }
                         if (fromAccount == 2) {
                             customer2.getAccounts().get(0).transfer(amount, customer1.getAccounts().get(0));
                             System.out.println("Transfer successful.");
-                            System.out.println(customer2.getName() + " successfully transfered $" + amount + " to " + customer1.getName());
+                            System.out.println(customer2.getName() + " successfully transfered $" + amount + " to " + customer1.getName() + "\n");
                         } 
                         System.out.println(customer1.getName() + "'s new balance : $" + customer1.getAccounts().get(0).checkAccountBalance());
-                        System.out.println(customer2.getName() + "'s new balance : $" + customer2.getAccounts().get(0).checkAccountBalance());
+                        System.out.println(customer2.getName() + "'s new balance : $" + customer2.getAccounts().get(0).checkAccountBalance() + "\n");
                     } else {
-                        System.out.println("Insufficient funds.");
+                        System.out.println("Insufficient funds.\n");
                     }
                     break;
             }
