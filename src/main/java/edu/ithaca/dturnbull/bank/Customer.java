@@ -23,6 +23,18 @@ public class Customer {
         accounts.remove(accountToDelete);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public ArrayList<Account> getAccounts() {
         return this.accounts;
     }
