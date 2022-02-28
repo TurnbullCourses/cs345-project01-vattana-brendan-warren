@@ -11,6 +11,11 @@ https://app.diagrams.net/#G1osYAV5I6hBkbmQYYV0EVdsINlPsfCrlB
 Link to UML Class Diagram:
 https://drive.google.com/file/d/1J5QexmdhANbXOvO_YO2TbHk_fsNRquOM/view?usp=sharing
 
+Links to Sequence Diagrams:
+Brendan:
+Vattana:
+Warren: https://drive.google.com/file/d/19aXXdxYxzp4MCxit3D6zb2nSXQdTsf9y/view?usp=sharing
+
 Three Use Cases that you will implement first:
 1. Customer: intra-transferring between types of accounts
 2. Customer: withdrawing and depositing to account
