@@ -16,7 +16,7 @@ public class AdminTest {
         // expecting balance to remain unchanged due to account being frozen
         double frozenBalance = account.checkAccountBalance();
         account.withdraw(100);
-        assertEquals(500, account.checkAccountBalance());
+        assertEquals(frozenBalance, account.checkAccountBalance());
     }
 
     @Test
